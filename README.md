@@ -28,4 +28,4 @@ python3 -m gifbot
 ```
 
 ### Thank you
-@SpEcHiDe
+<a href="https://github.com/SpEcHiDe/">@SpEcHiDe</a>
