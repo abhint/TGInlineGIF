@@ -2,7 +2,6 @@ import requests
 import json
 from telegram import *
 from uuid import uuid4
-from telegram.files.inputfile import DEFAULT_MIME_TYPE
 
 URL = "https://api.tenor.com/v1/search?q="
 KEY = "TJM4IZHZNUZ1"
@@ -23,7 +22,6 @@ class gif():
         )
     def search_gif(search_query):
         SEARCH_GIF = []
-        print(search_query)
         response = requests.get(url = f"{URL}{search_query}&key={KEY}&limit={LIMIT}")
         gifs =json.loads(response.content)
         for i in range(0, int(gifs['next'])):
@@ -37,4 +35,3 @@ class gif():
                 )
             )
         return SEARCH_GIF
-    # print(gifs['results'][i]['media'][0]['mediumgif']['url'])
