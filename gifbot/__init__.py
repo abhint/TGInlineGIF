@@ -1,7 +1,8 @@
 """
 Copyright 2021 ABHIJITH N T
 """
-import logging, os
+import logging
+import os
 from telegram import *
 from telegram.ext import *
 logging.basicConfig(
@@ -19,10 +20,14 @@ class BotEnv():
             from sample_config import config
             TOKEN = config.BOT_TOKEN
     except KeyError:
-        logger.error('One or more configuration values are missing exiting now.')
+        logger.error(
+            'One or more configuration values are missing exiting now.')
         exit(1)
+
+
 class gifBot:
     Bot = Bot(BotEnv.TOKEN)
+
 
 class Msg:
     START = " 😅\nYou can use me in InLine mode and search for available GIFS.\n"
@@ -30,16 +35,14 @@ class Msg:
     keyboard = [
         [
             InlineKeyboardButton(
-                text = "Search Inline",
-                switch_inline_query_current_chat = ""
-                )
-            ],
-            [
-                InlineKeyboardButton(
-                text = "📚 Source",
-                url = "https://github.com/Abhijith-cloud/TGInlineGIF/"
-                )
-            ]
+                text="Search Inline",
+                switch_inline_query_current_chat=""
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="📚 Source",
+                url="https://github.com/Abhijith-cloud/TGInlineGIF/"
+            )
         ]
-
-
+    ]
