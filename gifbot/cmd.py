@@ -1,6 +1,7 @@
 from telegram import *
 from telegram.ext import *
 from gifbot import gifBot, Msg
+
 bot = gifBot.Bot  # GET
 
 
@@ -13,5 +14,5 @@ def startMsg(update: Update, context: CallbackContext) -> None:
         height=200,
         caption=f"Hi <b>{update.effective_chat.username}</b>{Msg.START}",
         parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup(Msg.keyboard)
+        reply_markup=InlineKeyboardMarkup(Msg.keyboard),
     )
