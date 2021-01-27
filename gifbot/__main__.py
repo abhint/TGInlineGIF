@@ -2,10 +2,11 @@
 from telegram import *
 from telegram.ext import *
 from .cmd import startMsg
-from .gif import  gif_inlinequery
+from .gif import gif_inlinequery
 from gifbot import BotEnv
 
 # BOT_TOKEN = ""
+
 
 def main() -> None:
     updater = Updater(BotEnv.TOKEN, use_context=True)
@@ -20,6 +21,7 @@ def main() -> None:
     # updater.bot.set_webhook("" + BOT_TOKEN)
     updater.start_polling()
     updater.idle()
+
 
 if __name__ == '__main__':
     main()
