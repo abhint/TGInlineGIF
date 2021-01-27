@@ -2,10 +2,9 @@
 from telegram import *
 from telegram.ext import *
 
-from gifbot import BotEnv
-
 from .cmd import startMsg
 from .gif import gif_inlinequery
+from gifbot import BotEnv
 
 # BOT_TOKEN = ""
 
