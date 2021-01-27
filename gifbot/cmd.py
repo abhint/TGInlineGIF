@@ -1,6 +1,7 @@
 from telegram import *
 from telegram.ext import *
-from gifbot import gifBot, Msg
+
+from gifbot import Msg, gifBot
 
 bot = gifBot.Bot  # GET
 

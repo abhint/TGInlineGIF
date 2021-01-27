@@ -1,7 +1,8 @@
-import requests
 import json
-from telegram import *
 from uuid import uuid4
+
+import requests
+from telegram import *
 
 URL = "https://api.tenor.com/v1/search?q="
 KEY = "TJM4IZHZNUZ1"
