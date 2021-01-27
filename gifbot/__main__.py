@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 from telegram import *
 from telegram.ext import *
-
 from .cmd import startMsg
-from .gif import gif_inlinequery
+from .gif import  gif_inlinequery
 from gifbot import BotEnv
 
 # BOT_TOKEN = ""
-
 
 def main() -> None:
     updater = Updater(BotEnv.TOKEN, use_context=True)
@@ -23,6 +21,5 @@ def main() -> None:
     updater.start_polling()
     updater.idle()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
