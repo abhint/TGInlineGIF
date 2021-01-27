@@ -5,23 +5,24 @@ import logging
 import os
 from telegram import *
 from telegram.ext import *
+
 logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
 logger = logging.getLogger(__name__)
 
 
-class BotEnv():
-    ENV = bool(os.environ.get('ENV', False))
+class BotEnv:
+    ENV = bool(os.environ.get("ENV", False))
     try:
         if ENV:
-            TOKEN = os.environ.get('BOT_TOKEN')
+            TOKEN = os.environ.get("BOT_TOKEN")
         else:
             from sample_config import config
+
             TOKEN = config.BOT_TOKEN
     except KeyError:
-        logger.error(
-            'One or more configuration values are missing exiting now.')
+        logger.error("One or more configuration values are missing exiting now.")
         exit(1)
 
 
@@ -35,14 +36,12 @@ class Msg:
     keyboard = [
         [
             InlineKeyboardButton(
-                text="Search Inline",
-                switch_inline_query_current_chat=""
+                text="Search Inline", switch_inline_query_current_chat=""
             )
         ],
         [
             InlineKeyboardButton(
-                text="📚 Source",
-                url="https://github.com/Abhijith-cloud/TGInlineGIF/"
+                text="📚 Source", url="https://github.com/Abhijith-cloud/TGInlineGIF/"
             )
-        ]
+        ],
     ]
