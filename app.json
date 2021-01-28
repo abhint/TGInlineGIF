@@ -17,7 +17,11 @@
        "BOT_TOKEN": {
         "description": "Your Bot token from @Botfather",
         "value": ""
-      }
+      },
+      "WEBHOOK":{
+      "description": "https://<YOUR APP NAME>.herokuapp.com/",
+      "value" : "https://<YOUR APP NAME>.herokuapp.com/"
+     }
     },
      "buildpacks": [
       {
