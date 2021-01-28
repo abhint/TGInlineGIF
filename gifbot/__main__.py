@@ -6,8 +6,6 @@ from .cmd import startMsg
 from .gif import  gif_inlinequery
 from gifbot import BotEnv, logger
 
-# BOT_TOKEN = ""
-# "https://mallugifbotcyberbad.herokuapp.com/"
 
 def main() -> None:
     updater = Updater(BotEnv.TOKEN, use_context=True)
