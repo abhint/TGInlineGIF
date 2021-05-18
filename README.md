@@ -8,7 +8,7 @@
 ---
 #### Clone 
 ```sh
-git clone https://github.com/Abhijith-cloud/TGInlineGIF.git
+git clone https://github.com/AbhijithNT/TGInlineGIF.git
 ```
 
 #### Install Requirements
