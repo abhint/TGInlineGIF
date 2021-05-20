@@ -39,7 +39,7 @@ class Msg:
             [
                 InlineKeyboardButton(
                 text = "📚 Source",
-                url = "https://github.com/Abhijith-cloud/TGInlineGIF/"
+                url = "https://github.com/AbhijithNT/TGInlineGIF/"
                 )
             ]
         ]
