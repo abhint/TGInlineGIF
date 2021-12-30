@@ -9,18 +9,14 @@ init_logger = logger(__name__)
 def main() -> None:
     updater = Updater(BOT_TOKE, use_context=True)
     dispatcher = updater.dispatcher
-    dispatcher.add_handler(CommandHandler(["start", "help", "h"], startMsg))
-    dispatcher.add_handler(InlineQueryHandler(gif_inlinequery))
-    if BotEnv.ENV:
-        logger.info("START WEBHOOKs")
-        updater.start_webhook(
-            listen="0.0.0.0",
-            port=BotEnv.PORT,
-            url_path=BotEnv.TOKEN
-        )
-        updater.bot.set_webhook(url=BotEnv.WEBHOOK + BotEnv.TOKEN)
-    else:
-        updater.start_polling()
+    dispatcher.add_handler(CommandHandler(["start", "help", "h"], start_message))
+    dispatcher.add_handler(InlineQueryHandler(gif_inline_query))
+    updater.start_webhook(
+        webhook_url=WEBHOOK_URL,
+        port=PORT
+    )
+    init_logger.info('Bot is start')
+    # updater.start_polling()
     updater.idle()
 
 
