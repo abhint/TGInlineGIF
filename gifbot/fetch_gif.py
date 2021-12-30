@@ -1,37 +1,81 @@
 import requests
-import json
 from telegram import *
 from uuid import uuid4
 
-URL = "https://api.tenor.com/v1/search?q="
-KEY = "TJM4IZHZNUZ1"
-LIMIT = 50
-class gif():
-    DEFAULT_GIF = []
-    default_r = requests.get(url=f"{URL}Malayalam&key={KEY}&limit={LIMIT}")
-    default_gifs =json.loads(default_r.content)
-    for i in range(0, int(default_gifs['next'])):
-        DEFAULT_GIF.append(
-        InlineQueryResultGif(
-            id=uuid4(),
-            gif_width = default_gifs['results'][i]['media'][0]['mediumgif']['dims'][0],
-            gif_height = default_gifs['results'][i]['media'][0]['mediumgif']['dims'][1],
-            gif_url = default_gifs['results'][i]['media'][0]['mediumgif']['url'],
-            thumb_url = default_gifs['results'][i]['media'][0]['mediumgif']['url']
-            )
+
+class Fetch:
+    """
+    :param key: tenor api key
+    :param limit: tenor result limit
+    """
+    def __init__(self, key: str = None, limit: int = 10):
+        self.key = key
+        self.limit = limit
+        self.session = requests.Session()
+
+    def _requests(self, keyword: str):
+        """
+        :param keyword: search
+        :return: get tenor result
+        """
+        key = self.key
+        limit = self.limit
+        url = 'https://api.tenor.com/v1/search?q=%s&key=%s&limit=%d' % (keyword, key, limit)
+        try:
+            results = self.session.get(
+                url=url
+            ).json()
+            return results
+        except ConnectionError as err:
+            print(err)
+
+    @staticmethod
+    def _inline_query(width: int,
+                      height: int,
+                      gif_url: str,
+                      thumb_url: str,
+                      title: str) -> InlineQueryResultGif:
+        """
+        :param width: tenor gif width
+        :param height: tenor gif height
+        :param gif_url: tenor gif url
+        :param thumb_url: gif thumb url
+        :param title: gif title
+        :return: InlineQueryResultGif
+        """
+        return InlineQueryResultGif(
+            id=str(uuid4()),
+            gif_width=width,
+            gif_height=height,
+            gif_url=gif_url,
+            thumb_url=thumb_url,
+            title=title,
         )
-    def search_gif(search_query):
-        SEARCH_GIF = []
-        response = requests.get(url = f"{URL}{search_query}&key={KEY}&limit={LIMIT}")
-        gifs =json.loads(response.content)
-        for i in range(0, int(gifs['next'])):
-            SEARCH_GIF.append(
-            InlineQueryResultGif(
-                id=uuid4(),
-                gif_width = gifs['results'][i]['media'][0]['mediumgif']['dims'][0],
-                gif_height = gifs['results'][i]['media'][0]['mediumgif']['dims'][1],
-                gif_url = gifs['results'][i]['media'][0]['mediumgif']['url'],
-                thumb_url = gifs['results'][i]['media'][0]['mediumgif']['url']
+
+    def get_gif(self, keyword: str = 'Malayalam') -> list:
+        """
+
+        :param keyword: search
+        :return: InlineQueryResultGif list
+        """
+        inline_result = []
+        results = self._requests(keyword)
+        for result in results.get('results'):
+            media = result.get('media')[0].get('mediumgif')
+            url = media.get('url')
+            width = int(media.get('dims')[0])
+            height = int(media.get('dims')[1])
+            thumb_url = media.get('url')
+            title = result.get('content_description')
+
+            inline_result.append(
+                self._inline_query(
+                    width=width,
+                    height=height,
+                    title=title,
+                    thumb_url=thumb_url,
+                    gif_url=url,
+
                 )
             )
-        return SEARCH_GIF
+        return inline_result
