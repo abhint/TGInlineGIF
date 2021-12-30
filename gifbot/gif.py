@@ -1,11 +1,13 @@
-from uuid import uuid4
-from telegram.ext import CallbackContext
 from telegram import *
-from .fetch_gif import gif
+from gifbot import KEY
+from .fetch_gif import Fetch
 
-def gif_inlinequery(update: Update, context: CallbackContext) -> None:
+gif = Fetch(key=KEY)
+
+
+def gif_inline_query(update: Update, _) -> None:
     query = update.inline_query.query
     if query == "":
-        update.inline_query.answer(gif.DEFAULT_GIF)
+        update.inline_query.answer(gif.get_gif())
     else:
-        update.inline_query.answer(gif.search_gif(query))
+        update.inline_query.answer(gif.get_gif(query))
