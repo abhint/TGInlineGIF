@@ -1,6 +1,9 @@
+from typing import Union, Any, Dict
+
 import requests
 from telegram import *
 from uuid import uuid4
+from gifbot import logger
 
 
 class Fetch:
@@ -8,10 +11,12 @@ class Fetch:
     :param key: tenor api key
     :param limit: tenor result limit
     """
+
     def __init__(self, key: str = None, limit: int = 10):
         self.key = key
         self.limit = limit
         self.session = requests.Session()
+        self.logger = logger(__name__)
 
     def _requests(self, keyword: str):
         """
@@ -27,7 +32,8 @@ class Fetch:
             ).json()
             return results
         except ConnectionError as err:
-            print(err)
+            self.logger.warning(f'{err}')
+            return dict()
 
     @staticmethod
     def _inline_query(width: int,
@@ -58,8 +64,10 @@ class Fetch:
         :param keyword: search
         :return: InlineQueryResultGif list
         """
-        inline_result = []
-        results = self._requests(keyword)
+        inline_result: Union[Dict[Any, Any], Any] = []
+        results: Union[Dict[Any, Any], Any] = self._requests(keyword)
+        if results is False:
+            return inline_result
         for result in results.get('results'):
             media = result.get('media')[0].get('mediumgif')
             url = media.get('url')

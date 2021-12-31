@@ -32,7 +32,7 @@ MSG_KEYBOARD = [
     [
         InlineKeyboardButton(
             text="Search Inline",
-            switch_inline_query_current_chat=""
+            switch_inline_query_current_chat=" "
         )
     ],
     [
