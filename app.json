@@ -1,31 +1,21 @@
 {
-    "name": "Telegram Inline Gif Search Bot",
-    "description": "This bot Search Gif Inline",
-    "repository": "https://github.com/Abhijith-cloud/TGInlineGIF",
-    "keywords": [
-        "telegram",
-        "Inline Gif Search Bot",
-        "telegram bot",
-        "Gif"
-    ],
-    "env":
-    {
-        "ENV": {
-            "description": "Set it to anything to enable configuration by environment variables.",
-            "value": "True"
-        },
-       "BOT_TOKEN": {
-        "description": "Your Bot token from @Botfather",
-        "value": ""
-      },
-      "WEBHOOK":{
-      "description": "https://<YOUR APP NAME>.herokuapp.com/",
-      "value" : "https://<YOUR APP NAME>.herokuapp.com/"
-     }
+  "name": "Telegram Inline Gif Search Bot",
+  "description": "This bot Search Gif Inline",
+  "repository": "https://github.com/abhint/TGInlineGIF",
+  "keywords": ["telegram", "Inline Gif Search Bot", "telegram bot", "Gif"],
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your Bot token from @Botfather",
+      "value": ""
     },
-     "buildpacks": [
-      {
-        "url": "heroku/python"
-      }
-    ]
-  }
+    "WEBHOOK_URL": {
+      "description": "https://<YOUR APP NAME>.herokuapp.com/",
+      "value": "https://<YOUR APP NAME>.herokuapp.com/"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
