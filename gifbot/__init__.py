@@ -20,11 +20,9 @@ def logger(logs) -> logging.Logger:
 # tenor key
 KEY = os.environ.get('TENOR_KEY', "TJM4IZHZNUZ1")
 
-# Telegram bot Webhook
+# Telegram requirements
 
 BOT_TOKE = os.environ.get('BOT_TOKEN')
-WEBHOOK_URL = os.environ.get('WEBHOOK_URL')
-PORT = os.environ.get('PORT', 500)
 
 START = "You can use me in inline mode and search for available GIFS."
 WL_GIF = "https://telesco.pe/AbhijithNT/1427"
