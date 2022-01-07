@@ -1,1 +1,1 @@
-worker: python3 -m gifbot
+web: python3 -m gifbot
