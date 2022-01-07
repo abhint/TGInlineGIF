@@ -11,12 +11,12 @@ def main() -> None:
     dispatcher = updater.dispatcher
     dispatcher.add_handler(CommandHandler(["start", "help", "h"], start_message))
     dispatcher.add_handler(InlineQueryHandler(gif_inline_query))
-    updater.start_webhook(
-        webhook_url=WEBHOOK_URL,
-        port=PORT
-    )
+    # updater.start_webhook(
+    #     webhook_url=WEBHOOK_URL,
+    #     port=PORT
+    # )
     init_logger.info('Bot is start')
-    # updater.start_polling()
+    updater.start_polling()
     updater.idle()
 
 
