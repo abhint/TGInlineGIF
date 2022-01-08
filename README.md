@@ -1,31 +1,57 @@
-# Telegram Inline Gif Search Bot
+# <p>  Telegram Inline Gif Search Bot
+**Telegram Inline tenor gif search bot.**
+## Getting started
 
-#### Deploy Heroku
-<p align="center">
-<a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy"></a>
-</p>
-
----
-#### Clone 
-```sh
-git clone https://github.com/AbhijithNT/TGInlineGIF.git
+- **Installation**
+```shell
+$ git clone https://github.com/abhint/TGInlineGIF.git
 ```
-
-#### Install Requirements
-
-```sh
-pip3 install -U -r requirements.txt
+- **Change directory**
+```shell
+$ cd TGInlineGIF
 ```
-#### Edit Sample_config.py and replace it with your bot details like
-```python
-class config():
-    BOT_TOKEN = '1051231515:AAGv9yJbkpqQBx5nPnSRTNjF66Y5C9u4u3E'  # from @botfather
+- **Virtual Environment** `Optional`
+```shell
+$ pip install virtualenv
+$ virtualenv venv
+$ source venv/bin/activate
 ```
-#### RUN
+- **Install dependencies**
+```shell
+$ pip install -r requirements.txt
+```
+- **Run the Bot**
+```shell
+$ python -m gifbot
+```
+ - **Require environment variables**
+> Follow the links
 
-```sh
-python3 -m gifbot
-```
+1.`BOT_TOKEN` [BotFather](https://telegram.me/BotFather)
+
+## Heroku Deploy
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+## Built With
+
+- [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) - This library provides a pure Python interface for the Telegram Bot API.
+
+## Contributing
+
+Please read [CODE_OF_CONDUCT.md](https://github.com/abhint/TGInlineGIF/blob/main/CODE_OF_CONDUCT.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Authors
+- **[Abhijith N T](https://github.com/abhint)** - _Initial work_
+
+See also the list of [contributors](https://github.com/abhint/TGInlineGIF/contributors) who participated in this project.
+
+## Telegram Channel
+Join the [News channel](https://telegram.me/AbhijithNT). Here we will post releases and updates.
+
+## License
+
+The TGInlineGIF is licensed under the [GPL-3.0](https://github.com/abhint/TGInlineGIF/blob/main/LICENSE) license.
 
 ### Thank you
-<a href="https://github.com/SpEcHiDe/">@SpEcHiDe</a>
+@SpEcHiDe
