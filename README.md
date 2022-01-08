@@ -54,4 +54,4 @@ Join the [News channel](https://telegram.me/AbhijithNT). Here we will post relea
 The TGInlineGIF is licensed under the [GPL-3.0](https://github.com/abhint/TGInlineGIF/blob/main/LICENSE) license.
 
 ### Thank you
-[@SpEcHiDe]()
+[@SpEcHiDe](https://github.com/SpEcHiDe)
