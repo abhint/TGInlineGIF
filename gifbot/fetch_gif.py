@@ -25,10 +25,11 @@ class Fetch:
         """
         key = self.key
         limit = self.limit
+        trending = 'https://api.tenor.com/v1/trending?key=%s' % key
         url = 'https://api.tenor.com/v1/search?q=%s&key=%s&limit=%d' % (keyword, key, limit)
         try:
             results = self.session.get(
-                url=url
+                url=url if keyword else trending
             ).json()
             return results
         except ConnectionError as err:
@@ -58,7 +59,7 @@ class Fetch:
             title=title,
         )
 
-    def get_gif(self, keyword: str = 'Malayalam') -> list:
+    def get_gif(self, keyword: str = None) -> list:
         """
 
         :param keyword: search
